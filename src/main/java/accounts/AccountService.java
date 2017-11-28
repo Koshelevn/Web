@@ -4,7 +4,8 @@ package accounts;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AccountService {    private final Map<String, UserProfile> loginToProfile;
+public class AccountService {
+    private final Map<String, UserProfile> loginToProfile;
     private final Map<String, UserProfile> sessionIdToProfile;
 
     public AccountService() {
@@ -24,11 +25,16 @@ public class AccountService {    private final Map<String, UserProfile> loginToP
         return sessionIdToProfile.get(sessionId);
     }
 
+
     public void addSession(String sessionId, UserProfile userProfile) {
         sessionIdToProfile.put(sessionId, userProfile);
     }
 
     public void deleteSession(String sessionId) {
         sessionIdToProfile.remove(sessionId);
+    }
+
+    public void deleteUser(String login){
+        loginToProfile.remove(login);
     }
 }
